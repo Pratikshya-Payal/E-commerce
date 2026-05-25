@@ -1,0 +1,13 @@
+{% extends 'store/base.html' %}
+{% block content %}
+<div class="auth-card mx-auto my-5">
+    <h2 class="mb-4">Login</h2>
+    <p class="text-muted mb-4">Get access to your Orders, Wishlist and Recommendations</p>
+    <form method="post" class="mb-3">{% csrf_token %}
+        {{ form.mobile.label_tag }}
+        {{ form.mobile }}
+        <button class="btn btn-primary mt-3">Continue</button>
+    </form>
+    <p class="small text-muted">New to My Shop? <a href="{% url 'store:signup' %}">Create an account</a></p>
+</div>
+{% endblock %}

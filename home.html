@@ -1,0 +1,254 @@
+{% extends 'store/base.html' %}
+{% load static %}
+{% block content %}
+<section class="hero-section mb-5">
+    <div class="row g-4 align-items-center">
+        <div class="col-lg-7">
+            <div class="hero-card p-5 rounded-4 position-relative overflow-hidden">
+                <span class="hero-badge">Best Sellers</span>
+                <h1 class="hero-title">WELCOME TO MY SHOP.</h1>
+                <p class="hero-copy">Explore electronics, fashion, home essentials, and lifestyle products with curated offers and fast delivery.</p>
+                <div class="d-flex flex-wrap gap-3 mt-4">
+                    <a href="#featured-products" class="btn btn-light btn-lg">Shop Deals</a>
+                    <a href="#categories" class="btn btn-outline-light btn-lg">View Collections</a>
+                </div>
+                <div class="hero-stats row row-cols-1 row-cols-md-3 g-3 mt-5">
+                    <div class="col">
+                        <div class="stat-card p-3 rounded-4">
+                            <span class="stat-icon">🚚</span>
+                            <h5>Fast delivery</h5>
+                            <p>Quick shipping across India.</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="stat-card p-3 rounded-4">
+                            <span class="stat-icon">💳</span>
+                            <h5>Secure payment</h5>
+                            <p>Trusted checkout and easy returns.</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="stat-card p-3 rounded-4">
+                            <span class="stat-icon">⭐</span>
+                            <h5>Top brands</h5>
+                            <p>Handpicked favourites in every category.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-5">
+            <div class="row g-3">
+                <div class="col-sm-6">
+                    <div class="product-card p-3 rounded-4 shadow-sm bg-white">
+                        <img src="{% static 'store/images/gameing laptop.jpg' %}" alt="Laptop" class="img-fluid rounded-4">
+                        <div class="promo-body p-3">
+                            <h6>Gaming Gear</h6>
+                            <p>Hot collection, limited stock.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="promo-card rounded-4 overflow-hidden shadow-sm">
+                        <img src="{% static 'store/images/Man cloths.jpg' %}" alt="Fashion" class="img-fluid">
+                        <div class="promo-body p-3">
+                            <h6>New Fashion</h6>
+                            <p>Style for every occasion.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="promo-card rounded-4 overflow-hidden shadow-sm">
+                        <img src="{% static 'store/images/car.jpg' %}" alt="Auto" class="img-fluid">
+                        <div class="promo-body p-3">
+                            <h6>Smart Home</h6>
+                            <p>Innovative devices.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="promo-card rounded-4 overflow-hidden shadow-sm">
+                        <img src="{% static 'store/images/watchs.jpg' %}" alt="Accessories" class="img-fluid">
+                        <div class="promo-body p-3">
+                            <h6>Accessories</h6>
+                            <p>Perfect finishing touches.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="categories" class="category-section mb-5">
+    <div class="section-heading mb-4">
+        <h4>Shop by Collection</h4>
+    </div>
+    <div class="row g-3">
+        <div class="col-sm-6 col-lg-3">
+            <div class="category-card rounded-4 overflow-hidden shadow-sm">
+                <img src="{% static 'store/images/hp laptop.jpg' %}" alt="Electronics" class="img-fluid">
+                <div class="category-body p-3">
+                    <h5>Electronics</h5>
+                    <p>Top gadgets and devices.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+            <div class="category-card rounded-4 overflow-hidden shadow-sm">
+                <img src="{% static 'store/images/Man cloths.jpg' %}" alt="Fashion" class="img-fluid">
+                <div class="category-body p-3">
+                    <h5>Fashion</h5>
+                    <p>Seasonal clothing and styles.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+            <div class="category-card rounded-4 overflow-hidden shadow-sm">
+                <img src="{% static 'store/images/car (2).jpg' %}" alt="Home" class="img-fluid">
+                <div class="category-body p-3">
+                    <h5>Home</h5>
+                    <p>Essentials for every room.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+            <div class="category-card rounded-4 overflow-hidden shadow-sm">
+                <img src="{% static 'store/images/man watchs (2).jpg' %}" alt="Accessories" class="img-fluid">
+                <div class="category-body p-3">
+                    <h5>Accessories</h5>
+                    <p>Smart gifts and essentials.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="featured-products" class="featured-products-section mb-5">
+    <div class="section-heading mb-4">
+        <div class="d-flex justify-content-between align-items-center">
+            <h4>Featured Products</h4>
+            <a href="#" class="small text-primary">View all</a>
+        </div>
+    </div>
+    <div class="row g-4">
+        {% for item in latest_items %}
+        <div class="col-md-4">
+            <div class="featured-card rounded-4 overflow-hidden shadow-sm">
+                <img src="{{ item.main_image }}" class="img-fluid" alt="{{ item.name }}">
+                <div class="featured-body p-4">
+                    <h5>{{ item.name }}</h5>
+                    <p class="text-muted mb-2">{{ item.category }}</p>
+                    <div class="d-flex align-items-center justify-content-between">
+                        <span class="price">₹{{ item.price }}</span>
+                        {% if item.discount %}
+                        <span class="badge bg-primary bg-opacity-15 text-primary">{{ item.discount }}% off</span>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% if query %}
+<section class="section-heading mb-3">
+    <div class="d-flex justify-content-between align-items-center">
+        <h4>Search results for "{{ query }}"</h4>
+        <span class="text-muted">{{ products|length }} item{{ products|length|pluralize }}</span>
+    </div>
+</section>
+{% else %}
+<section class="section-heading mb-3">
+    <h4>Interesting Finds</h4>
+</section>
+{% endif %}
+{% if query and products|length == 0 %}
+<section class="alert alert-info">
+    No products found for "{{ query }}". Try another keyword or search by category.
+</section>
+{% endif %}
+<section class="row g-4 mb-5">
+    {% for product in products %}
+    <div class="col-sm-6 col-lg-4">
+        <div class="product-card p-3 rounded-4 shadow-sm bg-white">
+            <div class="product-card-images mb-3">
+                <div class="row g-2">
+                    <div class="col-12">
+                        <img src="{{ product.main_image }}" class="img-fluid rounded-4" alt="{{ product.name }}">
+                    </div>
+                    {% if product.image2 or product.image3 %}
+                    <div class="col-6">
+                        {% if product.image2 %}
+                        <img src="{{ product.image2 }}" alt="{{ product.name }} alternate 1" class="img-fluid rounded-4">
+                        {% endif %}
+                    </div>
+                    <div class="col-6">
+                        {% if product.image3 %}
+                        <img src="{{ product.image3 }}" alt="{{ product.name }} alternate 2" class="img-fluid rounded-4">
+                        {% endif %}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="text-start mt-3">
+                <p class="mb-1 small text-muted">{{ product.category }}</p>
+                <h5 class="mb-2">{{ product.name|truncatechars:30 }}</h5>
+                <p class="mb-2 text-muted product-description">{{ product.description|truncatechars:80 }}</p>
+                <p class="mb-2 price">₹{{ product.price }} {% if product.old_price %}<span class="text-muted text-decoration-line-through">₹{{ product.old_price }}</span>{% endif %}</p>
+                {% if product.discount %}
+                <p class="mb-3 text-danger small">{{ product.discount }}% off</p>
+                {% endif %}
+                <div class="d-grid gap-2">
+                    <form method="post" action="{% url 'store:add_to_cart' %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="product_id" value="{{ product.id }}">
+                        <input type="hidden" name="quantity" value="1">
+                        <input type="hidden" name="color" value="{{ product.colors.0 }}">
+                        <input type="hidden" name="size" value="{{ product.sizes.0 }}">
+                        <button type="submit" class="btn btn-success btn-sm">Add to cart</button>
+                    </form>
+                    <a href="{% url 'store:product_detail' product.slug %}" class="btn btn-outline-primary btn-sm">Product details</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</section>
+<section class="row g-4 mb-5">
+    <div class="col-md-6">
+        <div class="card highlight-card rounded-4 p-4 bg-primary text-white shadow-sm">
+            <h4>Popular Picks</h4>
+            <p>Shop curated collections and offers from top brands.</p>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card highlight-card rounded-4 p-4 bg-warning text-dark shadow-sm">
+            <h4>Festive Offers</h4>
+            <p>Grab exciting new deals on your favorite products.</p>
+        </div>
+    </div>
+</section>
+<div class="row g-4">
+    {% for item in products %}
+    <div class="col-md-4">
+        <div class="product-list-card rounded-4 shadow-sm overflow-hidden bg-white">
+            <img src="{{ item.main_image }}" alt="{{ item.name }}" class="img-fluid product-card-image">
+            <div class="p-4">
+                <h6>{{ item.name }}</h6>
+                <p class="mb-2 price">₹{{ item.price }} {% if item.old_price %}<span class="text-muted text-decoration-line-through">₹{{ item.old_price }}</span>{% endif %}</p>
+                <div class="d-flex gap-2 flex-wrap">
+                    <form method="post" action="{% url 'store:add_to_cart' %}" class="w-100">
+                        {% csrf_token %}
+                        <input type="hidden" name="product_id" value="{{ item.id }}">
+                        <input type="hidden" name="quantity" value="1">
+                        <input type="hidden" name="color" value="{{ item.colors.0 }}">
+                        <input type="hidden" name="size" value="{{ item.sizes.0 }}">
+                        <button type="submit" class="btn btn-success btn-sm w-100">Add to cart</button>
+                    </form>
+                </div>
+                <a href="{% url 'store:product_detail' item.slug %}" class="btn btn-sm btn-outline-primary mt-3 w-100">View Details</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
